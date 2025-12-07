@@ -47,15 +47,15 @@ def info(m):
 
     bot.send_message(m.chat.id,"Reply кнопки подключены ✅", reply_markup=klava2)
 
-    @bot.message_handler(commands=['notice'])
-    def noticeCMD(m):
-        users.add(m.chat.id)
-        bot.send_message(m.chat.id, "Вы подписались на уведомления")
+@bot.message_handler(commands=['notice'])
+def noticeCMD(m):
+    users.add(m.chat.id)
+    bot.send_message(m.chat.id, "Вы подписались на уведомления")
 
-    @bot.message_handler(commands=['unsub'])
-    def unsubCMD(m):
-        users.discard(m.chat.id)
-        bot.send_message(m.chat.id, "Вы отписались от уведомлений")
+@bot.message_handler(commands=['unsub'])
+def unsubCMD(m):
+    users.discard(m.chat.id)
+    bot.send_message(m.chat.id, "Вы отписались от уведомлений")
 
 # ПОТОКИ --------------------------------------------------
 
@@ -149,6 +149,7 @@ if __name__ == "__main__":
     print("Бот запущен...")
     start_scheduler()              # Запуск фоновых уведомлений
     bot.infinity_polling()    # Основной цикл бота
+
 
 
 
